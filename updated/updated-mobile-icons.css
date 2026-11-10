@@ -1,0 +1,291 @@
+/* ============================================================================
+   FRAWALA STUDIO — MOBILE ICON REFINEMENT
+   File    : updated/updated-mobile-icons.css
+   Scope   : phones and small tablets only — max-width: 767.98px
+   Purpose : shrink Font Awesome icons on mobile and rebalance the padding /
+             margin around them so headers, cards, forms and floating buttons
+             look consistent on small screens.
+   Note    : this file is self-contained and additive. It does not modify or
+             replace any existing rule outside the mobile breakpoint, so the
+             desktop design stays exactly as it is.
+   Load it AFTER style.css, sound-button.css and category-views.css.
+   ========================================================================== */
+
+@media (max-width: 767.98px) {
+
+    /* ------------------------------------------------------------------
+       1. HEADER CONTROLS
+       ------------------------------------------------------------------ */
+    .header-actions {
+        gap: 0.55rem;
+    }
+
+    .menu-toggle {
+        font-size: 1.25rem;          /* was 1.5rem */
+        line-height: 1;
+        padding: 0.35rem;            /* comfortable 30px+ tap area */
+        margin-inline-start: 0.15rem;
+    }
+
+    .lang-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+        gap: 4px;                    /* was 6px */
+    }
+
+    .lang-btn i {
+        font-size: 0.8rem;
+        line-height: 1;
+    }
+
+    /* The chevron uses an inline font-size, so !important is required here. */
+    .dropbtn .fa-chevron-down {
+        font-size: 0.62rem !important;
+        margin-inline-start: 2px;
+    }
+
+    /* ------------------------------------------------------------------
+       2. HERO BUTTONS & SCROLL CUE
+       ------------------------------------------------------------------ */
+    .btn {
+        gap: 8px;                    /* was 10px */
+    }
+
+    .btn i {
+        font-size: 0.9em;
+        line-height: 1;
+    }
+
+    .hero-buttons {
+        gap: 0.65rem;
+    }
+
+    .scroll-down {
+        bottom: 18px;                /* was 30px */
+    }
+
+    .scroll-down a {
+        font-size: 1rem;             /* was 1.2rem */
+        padding: 0.35rem;
+        display: inline-block;
+    }
+
+    /* ------------------------------------------------------------------
+       3. STATS CARDS
+       ------------------------------------------------------------------ */
+    .stat-card {
+        padding: 1.9rem 1.25rem;     /* tighter card on phones */
+    }
+
+    .stat-icon {
+        font-size: 1.55rem;          /* was 2.2rem */
+        margin-bottom: 0.65rem;      /* was 1rem */
+        line-height: 1;
+    }
+
+    .stat-icon i {
+        line-height: 1;
+    }
+
+    /* ------------------------------------------------------------------
+       4. TESTIMONIALS
+       ------------------------------------------------------------------ */
+    .testimonial-card {
+        padding: 1.9rem 1.4rem;      /* was 2.5rem */
+        gap: 1.15rem;                /* was 1.5rem */
+    }
+
+    .testimonial-stars {
+        display: flex;
+        align-items: center;
+        gap: 3px;                    /* explicit star spacing */
+        line-height: 1;
+    }
+
+    .testimonial-stars i {
+        font-size: 0.82rem;          /* slightly smaller stars */
+    }
+
+    /* ------------------------------------------------------------------
+       5. CONTACT / BOOKING SECTION
+       ------------------------------------------------------------------ */
+    .contact-details {
+        gap: 1.15rem;                /* was 1.8rem */
+    }
+
+    .contact-item {
+        align-items: center;
+        gap: 0.85rem;                /* was 1.5rem */
+    }
+
+    .contact-item i {
+        font-size: 1.05rem;          /* was 1.5rem */
+        width: 2.5rem;               /* fixed, consistent icon tile */
+        height: 2.5rem;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;         /* was 12px */
+        flex: 0 0 auto;
+        line-height: 1;
+    }
+
+    .contact-item h4 {
+        font-size: 1rem;
+        margin-bottom: 0.15rem;
+    }
+
+    .contact-item p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .booking-form .btn i {
+        font-size: 0.9rem;
+    }
+
+    /* ------------------------------------------------------------------
+       6. CATEGORY VIEW — BACK BUTTON
+       ------------------------------------------------------------------ */
+    #backToHomeBtn,
+    #aboutBackToHomeBtn {
+        font-size: 0.85rem;
+        padding: 0.65rem 1.15rem;
+        gap: 6px;
+    }
+
+    /* ------------------------------------------------------------------
+       7. GALLERY / VIDEO OVERLAY CONTROLS
+       ------------------------------------------------------------------ */
+    .video-top-btns {
+        top: 12px;                   /* was 20px */
+        left: 12px;
+        right: 12px;
+    }
+
+    .sound-toggle-btn,
+    .expand-video-btn {
+        width: 34px;                 /* was 42px */
+        height: 34px;
+        font-size: 0.8rem;           /* was 1rem */
+    }
+
+    .portfolio-overlay .lightbox-trigger i {
+        font-size: 0.9rem;
+        line-height: 1;
+    }
+
+    /* ------------------------------------------------------------------
+       8. LIGHTBOX CLOSE
+       ------------------------------------------------------------------ */
+    .lightbox-close {
+        font-size: 2rem;             /* was 3rem */
+        top: 14px;                   /* was 30px */
+        right: 18px;                 /* was 40px */
+        padding: 0.25rem;
+        line-height: 1;
+    }
+
+    /* ------------------------------------------------------------------
+       9. FLOATING WHATSAPP BUTTON
+       ------------------------------------------------------------------ */
+    .floating-whatsapp {
+        width: 48px;                 /* was 60px */
+        height: 48px;
+        bottom: 20px;                /* was 30px */
+        right: 20px;
+        font-size: 1.45rem;          /* was 2rem */
+    }
+
+    body[dir="ltr"] .floating-whatsapp {
+        right: auto;
+        left: 20px;                  /* matches the RTL offset */
+    }
+
+    /* Hover tooltips are not useful on touch screens. */
+    .whatsapp-tooltip {
+        display: none;
+    }
+
+    /* ------------------------------------------------------------------
+       10. FOOTER SOCIAL ICONS
+       ------------------------------------------------------------------ */
+    .footer-social {
+        gap: 9px;                    /* was 12px */
+    }
+
+    .footer-social a {
+        width: 34px;                 /* was 38px */
+        height: 34px;
+        font-size: 0.85rem;
+    }
+
+    .footer-social a i {
+        line-height: 1;
+    }
+}
+
+/* ============================================================================
+   EXTRA-SMALL PHONES — max-width: 480px
+   One more step down so icons never crowd the text on narrow screens.
+   ========================================================================== */
+
+@media (max-width: 480px) {
+
+    .menu-toggle {
+        font-size: 1.15rem;
+    }
+
+    .lang-btn {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.65rem;
+    }
+
+    .stat-icon {
+        font-size: 1.4rem;
+        margin-bottom: 0.55rem;
+    }
+
+    .contact-item i {
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: 0.95rem;
+        border-radius: 9px;
+    }
+
+    .testimonial-stars i {
+        font-size: 0.75rem;
+    }
+
+    .sound-toggle-btn,
+    .expand-video-btn {
+        width: 31px;
+        height: 31px;
+        font-size: 0.72rem;
+    }
+
+    .lightbox-close {
+        font-size: 1.75rem;
+        top: 10px;
+        right: 14px;
+    }
+
+    .floating-whatsapp {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+        bottom: 16px;
+        right: 16px;
+    }
+
+    body[dir="ltr"] .floating-whatsapp {
+        left: 16px;
+    }
+
+    .footer-social a {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+}
