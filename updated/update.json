@@ -1,0 +1,184 @@
+{
+  "project": "Frawala Studio",
+  "site": "Static site (index.html + style.css + script.js)",
+  "lastUpdated": "2026-11-12",
+  "workflow": "Every change is delivered inside the /updated folder and applied to index.updated.html for review. Base files stay untouched until approval.",
+  "updates": [
+    {
+      "id": "2026-11-12-whatsapp-link-replacement",
+      "date": "2026-11-12",
+      "type": "update",
+      "status": "ready-for-review",
+      "title": {
+        "ar": "تحديث رابط واتساب الرسمي في جميع أجزاء الموقع",
+        "en": "Replace every WhatsApp link with the new official link"
+      },
+      "problem": {
+        "ar": "كان زر واتساب العائم يستخدم رابطاً قديماً، ولم تكن أيقونة واتساب موجودة ضمن أيقونات السوشيال ميديا في تذييل الموقع.",
+        "en": "The floating WhatsApp button used an old link, and no WhatsApp icon existed in the footer social icons."
+      },
+      "changes": {
+        "ar": [
+          "استبدال رابط زر واتساب العائم بالرابط الجديد https://wa.me/qr/7OPJFROHEVRGM1",
+          "إضافة أيقونة واتساب إلى .footer-social في تذييل الموقع بالرابط الجديد.",
+          "إنشاء ملف إعدادات مركزي updated/updated-whatsapp-config.js يحتوي الرابط الرسمي ليصبح مصدراً واحداً لأي تعديل مستقبلي.",
+          "إنشاء سكربت updated/updated-whatsapp-link.js يفحص كل روابط wa.me و api.whatsapp.com و web.whatsapp.com و chat.whatsapp.com و whatsapp: ويستبدلها بالرابط الجديد، بما فيها الروابط التي تُضاف لاحقاً عبر MutationObserver.",
+          "إضافة target=\"_blank\" و rel=\"noopener noreferrer\" لكل روابط واتساب.",
+          "الاحتفاظ برقم الهاتف الظاهر في قسم التواصل كما هو لأنه نص وليس رابط واتساب."
+        ],
+        "en": [
+          "Replaced the floating WhatsApp button link with https://wa.me/qr/7OPJFROHEVRGM1",
+          "Added a WhatsApp icon to .footer-social in the site footer with the new link.",
+          "Created updated/updated-whatsapp-config.js as the single source of truth for the official link.",
+          "Created updated/updated-whatsapp-link.js to rewrite every wa.me, api.whatsapp.com, web.whatsapp.com, chat.whatsapp.com and whatsapp: link, including links added later (MutationObserver).",
+          "Added target=\"_blank\" and rel=\"noopener noreferrer\" to every WhatsApp link.",
+          "Kept the phone number shown in the contact section unchanged because it is plain text, not a WhatsApp link."
+        ]
+      },
+      "files": [
+        "index.updated.html",
+        "updated/updated-whatsapp-config.js",
+        "updated/updated-whatsapp-link.js",
+        "updated/update.json",
+        "updated/README-updated.md"
+      ],
+      "apply": {
+        "beforeBodyEnd": [
+          "<script src=\"updated/updated-whatsapp-config.js\" defer></script>",
+          "<script src=\"updated/updated-whatsapp-link.js\" defer></script>"
+        ],
+        "note": {
+          "ar": "يُحمَّل ملف الإعدادات قبل سكربت الاستبدال. ملف index.updated.html يحتوي التعديلين مطبّقين بالفعل.",
+          "en": "Load the config file before the replacement script. index.updated.html already contains both."
+        }
+      },
+      "tests": {
+        "ar": [
+          "زر واتساب العائم: href يساوي الرابط الجديد مع target و rel صحيحين.",
+          "الفوتر: 5 أيقونات سوشيال، أولها واتساب بالرابط الجديد.",
+          "إضافة رابط واتساب قديم ديناميكياً: يُستبدل تلقائياً دون تكرار أيقونة الفوتر.",
+          "لا توجد روابط واتساب قديمة في DOM بعد التحميل.",
+          "أخطاء الكونسول: 0."
+        ],
+        "en": [
+          "Floating WhatsApp button: href equals the new link with correct target and rel.",
+          "Footer: 5 social icons, the first is WhatsApp with the new link.",
+          "A dynamically added old WhatsApp link is replaced automatically without duplicating the footer icon.",
+          "No old WhatsApp links remain in the DOM after load.",
+          "Console errors: 0."
+        ]
+      }
+    },
+    {
+      "id": "2026-11-12-brands-dropdown-mobile",
+      "date": "2026-11-12",
+      "type": "bugfix",
+      "status": "ready-for-review",
+      "title": {
+        "ar": "إصلاح قائمة البراندات على الأجهزة المحمولة واللمس",
+        "en": "Fix Brands dropdown on mobile and touch devices"
+      },
+      "problem": {
+        "ar": "عند الضغط على زر «البراندات» في الهاتف لا تظهر القائمة المنسدلة، ويبدو الزر كأنه لا يستجيب للمس.",
+        "en": "On phones, tapping the Brands button did not show the dropdown; the control appeared unresponsive to touch."
+      },
+      "cause": {
+        "ar": [
+          "script.js يربط مستمع click بكل روابط .nav-list a، بما فيها زر .dropbtn. عند لمس الزر يُغلق مستمع القائمة الجوالة القائمة كاملة (تختفي إلى خارج الشاشة) قبل أن يظهر تأثير فتح القائمة المنسدلة.",
+          "الاعتماد على حدث click فقط مع عدم وجود touch-action: manipulation يسبب تأخير اللمس المزدوج وظهور أحداث ماوس صناعية غير موثوقة على بعض المتصفحات.",
+          "قاعدة max-height: 200px القديمة لقائمة البراندات على الشاشات الصغيرة كانت تقص الروابط وتجعل القائمة تبدو مكسورة.",
+          "بين 769px و1024px كانت القائمة تتمدد داخل الهيدر بخلفية شفافة فوق السلايدر بدلاً من أن تطفو كقائمة منسدلة."
+        ],
+        "en": [
+          "script.js binds a click handler to every .nav-list a, including .dropbtn. Tapping Brands closed the whole mobile menu (slide off-screen) before the dropdown could be seen.",
+          "Relying on click alone without touch-action: manipulation introduced tap delay and unreliable synthetic mouse events on some browsers.",
+          "The old max-height: 200px mobile rule clipped brand links and made the panel look broken.",
+          "Between 769px and 1024px the list expanded inside the header with a transparent background over the hero instead of floating as a dropdown."
+        ]
+      },
+      "fix": {
+        "ar": [
+          "معالجة اللمس في مرحلة capture عبر touchstart / touchmove / touchend مع preventDefault و stopPropagation لمنع إغلاق القائمة الجوالة.",
+          "معالجة click في مرحلة capture مع إزالة التكرار بعد اللمس، لتغطية الماوس ولوحة المفاتيح والمتصفحات التي لا تدعم اللمس.",
+          "إضافة touch-action: manipulation إلى زر البراندات وروابط البراندات، مع أهداف لمس بارتفاع 44px.",
+          "رفع طبقات العناصر: الهيدر 1100، قائمة الجوال 1200، القائمة المنسدلة المفتوحة 1300 — أعلى من السلايدر (1–3) وواتساب العائم (999) وأقل من الـ Lightbox (2000).",
+          "قائمة منسدلة عائمة حقيقية لأجهزة التابلت 769–1024px، وقائمة قابلة للتمدد مع تمرير داخل قائمة الجوال حتى 60vh للهواتف.",
+          "إغلاق تلقائي عند اختيار براند أو إغلاق القائمة أو الضغط خارجها أو Escape أو العودة لسطح المكتب، مع تحديث aria-expanded."
+        ],
+        "en": [
+          "Capture-phase touchstart / touchmove / touchend handling with preventDefault and stopPropagation so the mobile menu never closes on the Brands tap.",
+          "Capture-phase click handling with post-touch de-duplication to cover mouse, keyboard and browsers without touch events.",
+          "touch-action: manipulation on the Brands button and brand links, plus 44px minimum tap targets.",
+          "Explicit stacking: header 1100, mobile menu 1200, open dropdown 1300 — above the hero slider (1–3) and floating WhatsApp (999), below the lightbox (2000).",
+          "A true floating panel for tablets (769–1024px) and a scrollable expanding panel (up to 60vh) inside the mobile menu on phones.",
+          "Automatic reset on brand selection, menu close, outside click, Escape and desktop resize, with correct aria-expanded state."
+        ]
+      },
+      "files": [
+        "updated/updated-brands-dropdown.js",
+        "updated/updated-brands-dropdown.css",
+        "index.updated.html",
+        "updated/update.json",
+        "updated/README-updated.md"
+      ],
+      "apply": {
+        "head": "<link rel=\"stylesheet\" href=\"updated/updated-brands-dropdown.css\">",
+        "beforeBodyEnd": "<script src=\"updated/updated-brands-dropdown.js\" defer></script>",
+        "note": {
+          "ar": "يُضاف الرابط بعد category-views.css (أو بعد updated-mobile-icons.css) ويُضاف السكربت بعد script.js.",
+          "en": "Add the link after category-views.css (or after updated-mobile-icons.css) and the script after script.js."
+        }
+      },
+      "tests": {
+        "ar": [
+          "فتح قائمة الجوال ثم لمس «البراندات»: القائمة تبقى مفتوحة وتظهر روابط البراندات الأربعة.",
+          "لمس الزر مرة أخرى: تُغلق القائمة المنسدلة دون إغلاق قائمة الجوال.",
+          "لمس خارج القائمة: تُغلق القائمة المنسدلة.",
+          "اختيار براند: تُغلق القائمة وتُفتح صفحة التصنيف.",
+          "سطح المكتب 1280px: سلوك hover الأصلي دون تغيير."
+        ],
+        "en": [
+          "Open the mobile menu, tap Brands: the menu stays open and all four brand links appear.",
+          "Tap again: the dropdown closes without closing the mobile menu.",
+          "Tap outside: the dropdown closes.",
+          "Choose a brand: the dropdown closes and the category view opens.",
+          "Desktop 1280px: original hover behaviour unchanged."
+        ]
+      }
+    },
+    {
+      "id": "2026-11-10-mobile-icon-refinement",
+      "date": "2026-11-10",
+      "type": "enhancement",
+      "status": "delivered",
+      "title": {
+        "ar": "تصغير الأيقونات وتحسين المسافات على الهواتف",
+        "en": "Mobile icon sizing and spacing refinement"
+      },
+      "summary": {
+        "ar": "تصغير أيقونات الهيدر والإحصائيات والتقييمات والتواصل وأزرار الفيديو والواتساب والفوتر تحت 768px، مع تحسين المسافات ونقطة إضافية تحت 480px. لا تأثير على سطح المكتب.",
+        "en": "Smaller header, stats, rating, contact, video, WhatsApp and footer icons below 768px, with spacing refinements and an extra step below 480px. No desktop impact."
+      },
+      "files": [
+        "updated/updated-mobile-icons.css"
+      ]
+    },
+    {
+      "id": "2026-11-10-language-icon-preservation",
+      "date": "2026-11-10",
+      "type": "bugfix",
+      "status": "delivered",
+      "title": {
+        "ar": "الحفاظ على أيقونات الأزرار عند تبديل اللغة",
+        "en": "Preserve button icons when switching language"
+      },
+      "summary": {
+        "ar": "setLanguage() في script.js يستبدل textContent فيحذف أيقونات زر «استعرض الأعمال» وزر «احجز استشارتك» وسهم «البراندات». ملف updated-lang-icons.js يعيد إدراجها بشكل idempotent بعد كل تغيير لغة.",
+        "en": "setLanguage() in script.js rewrites textContent and removed the Explore Portfolio, Book Consultation and Brands chevron icons. updated-lang-icons.js re-inserts them idempotently after every language change."
+      },
+      "files": [
+        "updated/updated-lang-icons.js"
+      ]
+    }
+  ]
+}
