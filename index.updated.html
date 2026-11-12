@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فراولة ستوديو | Frawala Studio - استوديو الإنتاج البصري والتصوير التجاري</title>
+    <!-- Third-party styles are loaded off the critical path (async, non-blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap"></noscript>
+    <!-- FontAwesome (deferred) -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'; this.onload=null;" crossorigin="anonymous">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sound-button.css">
+    <link rel="stylesheet" href="category-views.css">
+    <link rel="stylesheet" href="updated/updated-mobile-icons.css">
+    <link rel="stylesheet" href="updated/updated-brands-dropdown.css">
+</head>
+<body class="dark-theme">
+
+    <!-- Header / Navbar -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="javascript:void(0)" id="studioLogo" class="logo" title="عن الاستوديو" aria-label="شعار فراولة ستوديو - اضغط لعرض نبذة عن الاستوديو">
+                <img src="assets/logo/main-logo.jpeg" alt="Frawala Studio Logo" class="logo-img" decoding="async">
+                <span class="logo-text" data-ar="فراولة ستوديو" data-en="Frawala Studio">فراولة ستوديو</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#hero" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+                    
+                    <!-- Dropdown for Brands -->
+                    <li class="dropdown">
+                        <a href="#brands" class="dropbtn" data-ar="البراندات" data-en="Brands" aria-haspopup="true" aria-expanded="false">البراندات <i class="fa-solid fa-chevron-down" style="font-size:0.75rem;"></i></a>
+                        <ul class="dropdown-content" role="menu">
+                            <li><a href="#" class="category-link" data-cat="perfumes" data-ar="العطور" data-en="Perfumes" role="menuitem">العطور</a></li>
+                            <li><a href="#" class="category-link" data-cat="abayas" data-ar="العبايا" data-en="Abayas" role="menuitem">العبايا</a></li>
+                            <li><a href="#" class="category-link" data-cat="fabrics" data-ar="أقمشة" data-en="Fabrics" role="menuitem">أقمشة</a></li>
+                            <li><a href="#" class="category-link" data-cat="floward" data-ar="ورد / فلاورد" data-en="Flowers / Floward" role="menuitem">ورد / فلاورد</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#" class="category-link" data-cat="omanis" data-ar="عمانيين" data-en="Omanis">عمانيين</a></li>
+                    <li><a href="#" class="category-link" data-cat="cafes" data-ar="الكافيهات والمطاعم" data-en="Cafes & Restaurants">الكافيهات والمطاعم</a></li>
+                    <li><a href="#booking" data-ar="حجز موعد" data-en="Book Now">حجز موعد</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="langToggle" class="lang-btn" aria-label="Toggle Language">
+                    <i class="fa-solid fa-globe"></i>
+                    <span id="langText">EN</span>
+                </button>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main View (Homepage) -->
+    <div id="mainView">
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-video-bg">
+                <!-- data-src + preload="none": the source is attached only when the hero enters the viewport -->
+                <video autoplay muted loop playsinline preload="none" data-src="assets/reels/reel 1.mp4" aria-hidden="true" tabindex="-1">
+                    <source data-src="assets/reels/reel 1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="container hero-content">
+                <div class="hero-badge" data-ar="✨ استوديو الإنتاج البصري الاحترافي - مسقط، عمان" data-en="✨ Professional Visual Production Studio - Muscat, Oman">
+                    ✨ استوديو الإنتاج البصري الاحترافي - مسقط، عمان
+                </div>
+                <h1 class="hero-title" data-ar="نصنع بصريات تخلد البراندات" data-en="Creating Visuals That Immortalize Brands">
+                    نصنع بصريات تخلد البراندات
+                </h1>
+                <p class="hero-subtitle" data-ar="نحوّل هوياتكم التجارية إلى أعمال سينمائية نابضة بالحياة تعكس الفخامة، الجاذبية، وترفع من قيمة منتجاتكم في السوق." data-en="We transform your commercial identities into vibrant cinematic works that reflect luxury, appeal, and elevate your market value.">
+                    نحوّل هوياتكم التجارية إلى أعمال سينمائية نابضة بالحياة تعكس الفخامة، الجاذبية، وترفع من قيمة منتجاتكم في السوق.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary category-link" data-cat="all" data-ar="استعرض الأعمال" data-en="Explore Portfolio">
+                        <i class="fa-solid fa-clapperboard"></i> <span data-ar="استعرض الأعمال" data-en="Explore Portfolio">استعرض الأعمال</span>
+                    </button>
+                    <a href="#booking" class="btn btn-outline" data-ar="احجز استشارتك" data-en="Book Consultation">
+                        <i class="fa-solid fa-calendar-days"></i> احجز استشارتك
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Counter Section -->
+        <section id="stats" class="stats-section">
+            <div class="container stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label" data-ar="شركة ناشئة" data-en="Startups">شركة ناشئة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-label" data-ar="كافيه ومقهى مختص" data-en="Cafes & Specialty Shops">كافيه ومقهى مختص</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+                    <div class="stat-number" data-target="4">0</div>
+                    <div class="stat-label" data-ar="علامات براندات عالمية" data-en="Global Brand Trademarks">علامات براندات عالمية</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-award"></i></div>
+                    <div class="stat-number" data-target="150">0</div>
+                    <div class="stat-label" data-ar="مشروع تجاري ناجح" data-en="Successful Projects">مشروع تجاري ناجح</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Homepage Showcase Grid (Shuffle / Randomized) -->
+        <section class="portfolio-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-ar="معرض الأعمال المميزة" data-en="FEATURED SHOWCASE">معرض الأعمال المميزة</span>
+                    <h2 class="section-title" data-ar="لقطات سينمائية تنبض بالحياة" data-en="Cinematic Shots Full of Life">لقطات سينمائية تنبض بالحياة</h2>
+                    <p class="section-desc" data-ar="استكشف تشكيلة مميزة ومتجددة من أعمالنا في تصوير البراندات، العطور، العبايا، البورتريه، والمقاهي." data-en="Explore a unique and refreshed collection of our work in branding, perfumes, abayas, portraits, and cafes.">
+                        استكشف تشكيلة مميزة ومتجددة من أعمالنا في تصوير البراندات، العطور، العبايا، البورتريه، والمقاهي.
+                    </p>
+                </div>
+
+                <div class="homepage-categories-nav">
+                    <button class="filter-btn category-link active" data-cat="all" data-ar="الكل" data-en="All">الكل</button>
+                    <button class="filter-btn category-link" data-cat="perfumes" data-ar="العطور" data-en="Perfumes">العطور</button>
+                    <button class="filter-btn category-link" data-cat="abayas" data-ar="العبايا" data-en="Abayas">العبايا</button>
+                    <button class="filter-btn category-link" data-cat="fabrics" data-ar="أقمشة" data-en="Fabrics">أقمشة</button>
+                    <button class="filter-btn category-link" data-cat="floward" data-ar="ورد / فلاورد" data-en="Flowers / Floward">ورد / فلاورد</button>
+                    <button class="filter-btn category-link" data-cat="omanis" data-ar="عمانيين" data-en="Omanis">عمانيين</button>
+                    <button class="filter-btn category-link" data-cat="cafes" data-ar="الكافيهات والمطاعم" data-en="Cafes & Restaurants">الكافيهات والمطاعم</button>
+                </div>
+
+                <div class="portfolio-grid" id="homepageShuffleGrid">
+                    <!-- Dynamic Items Injected via JS with Full Quality -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-ar="آراء العملاء والشركاء" data-en="CLIENT TESTIMONIALS">آراء العملاء والشركاء</span>
+                    <h2 class="section-title" data-ar="ماذا يقول عملائنا عنا" data-en="What Our Clients Say">ماذا يقول عملائنا عنا</h2>
+                    <p class="section-desc" data-ar="فخورون بثقة رواد الأعمال والبراندات الكبرى التي شاركناها رحلة النجاح والتميز البصري." data-en="Proud of the trust of entrepreneurs and major brands we shared success with.">
+                        فخورون بثقة رواد الأعمال والبراندات الكبرى التي شاركناها رحلة النجاح والتميز البصري.
+                    </p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p data-ar="&quot;التعامل مع فراولة ستوديو نقل براند العطور الخاص بنا إلى مستوى عالمي تماماً. دقة التصوير وتعديل الألوان أبهرت عملائنا!&quot;" data-en="&quot;Working with Frawala Studio took our perfume brand to a completely global level. The photography and color grading amazed our customers!&quot;">
+                            "التعامل مع فراولة ستوديو نقل براند العطور الخاص بنا إلى مستوى عالمي تماماً. دقة التصوير وتعديل الألوان أبهرت عملائنا!"
+                        </p>
+                        <div class="testimonial-author">
+                            <h4 data-ar="محمد البلوشي" data-en="Mohammed Al Balushi">محمد البلوشي</h4>
+                            <span data-ar="مؤسس براند عطور فاخر" data-en="Luxury Perfume Brand Founder">مؤسس براند عطور فاخر</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p data-ar="&quot;فريق احترافي جداً في توثيق أجواء الكافيه وإبراز تفاصيل القهوة والمخبوزات. النتائج فاقت توقعاتنا بكثير.&quot;" data-en="&quot;A very professional team in documenting the cafe atmosphere and highlighting coffee details. Results exceeded expectations.&quot;">
+                            "فريق احترافي جداً في توثيق أجواء الكافيه وإبراز تفاصيل القهوة والمخبوزات. النتائج فاقت توقعاتنا بكثير."
+                        </p>
+                        <div class="testimonial-author">
+                            <h4 data-ar="أحمد الراشدي" data-en="Ahmed Al Rashdi">أحمد الراشدي</h4>
+                            <span data-ar="مدير مقهى مختص" data-en="Specialty Cafe Manager">مدير مقهى مختص</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p data-ar="&quot;الإخراج والتوجيه الفني للريلز والإعلانات كان ساحراً. أنصح كل صاحب براند بالتعاون معهم دون تردد.&quot;" data-en="&quot;The direction and art styling for reels and ads was mesmerizing. I recommend every brand owner to work with them.&quot;">
+                            "الإخراج والتوجيه الفني للريلز والإعلانات كان ساحراً. أنصح كل صاحب براند بالتعاون معهم دون تردد."
+                        </p>
+                        <div class="testimonial-author">
+                            <h4 data-ar="سارة المعمري" data-en="Sara Al Maamari">سارة المعمري</h4>
+                            <span data-ar="رائدة أعمال في قطاع التجزئة" data-en="Retail Entrepreneur">رائدة أعمال في قطاع التجزئة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet the Team Section -->
+        <section id="team" class="team-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-ar="فريق العمل" data-en="MEET THE TEAM">فريق العمل</span>
+                    <h2 class="section-title" data-ar="العقول المبدعة خلف الكاميرا" data-en="The Creative Minds Behind The Camera">العقول المبدعة خلف الكاميرا</h2>
+                    <p class="section-desc" data-ar="فريق شغوف ومتخصص يدمج رؤية المخرج، احترافية الإدارة الفنية، ودقة الألوان ليخرج عملك بأعلى معايير الجودة العالمية." data-en="A passionate and specialized team combining directorial vision, art direction expertise, and color grading precision.">
+                        فريق شغوف ومتخصص يدمج رؤية المخرج، احترافية الإدارة الفنية، ودقة الألوان ليخرج عملك بأعلى معايير الجودة العالمية.
+                    </p>
+                </div>
+
+                <div class="team-grid">
+                    <article class="team-card">
+                        <h3 class="team-name" data-ar="علي" data-en="Ali">علي</h3>
+                        <span class="team-role" data-ar="المؤسس / مخرج وممنتج" data-en="Founder / Director &amp; Editor">المؤسس / مخرج وممنتج</span>
+                    </article>
+
+                    <article class="team-card">
+                        <h3 class="team-name" data-ar="خالد" data-en="Khalid">خالد</h3>
+                        <span class="team-role" data-ar="مدير الفنون" data-en="Art Director">مدير الفنون</span>
+                    </article>
+
+                    <article class="team-card">
+                        <h3 class="team-name" data-ar="سيف" data-en="Saif">سيف</h3>
+                        <span class="team-role" data-ar="تصحيح الألوان وإدارة الإضاءة" data-en="Color Grading &amp; Lighting">تصحيح الألوان وإدارة الإضاءة</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking & Contact Section -->
+        <section id="booking" class="booking-section">
+            <div class="container booking-container">
+                <div class="booking-info">
+                    <span class="section-tag" data-ar="استشارة مجانية" data-en="FREE CONSULTATION">استشارة مجانية</span>
+                    <h2 class="section-title" data-ar="دعنا نحول رؤيتك إلى واقع سينمائي مبهر" data-en="Let's Transform Your Vision Into Cinematic Reality">دعنا نحول رؤيتك إلى واقع سينمائي مبهر</h2>
+                    <p data-ar="سواء كنت تمتلك براند جديد، كافيه مختص، أو شركة تبحث عن هوية بصرية استثنائية؛ فريقنا جاهز لتحقيق أهدافك بكل حرفية." data-en="Whether you own a new brand, a specialty cafe, or a company looking for an exceptional visual identity; our team is ready.">
+                        سواء كنت تمتلك براند جديد، كافيه مختص، أو شركة تبحث عن هوية بصرية استثنائية؛ فريقنا جاهز لتحقيق أهدافك بكل حرفية.
+                    </p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <h4 data-ar="المقر الرئيسي" data-en="Headquarters">المقر الرئيسي</h4>
+                                <p data-ar="مسقط، سلطنة عمان / متاح السفر للأعمال" data-en="Muscat, Sultanate of Oman / Available for Business Travel">مسقط، سلطنة عمان / متاح السفر للأعمال</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <h4 data-ar="البريد الإلكتروني" data-en="Email Us">البريد الإلكتروني</h4>
+                                <p><a href="mailto:frawlahstudio@gmail.com">frawlahstudio@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <h4 data-ar="اتصل بنا أو واتساب" data-en="Phone / WhatsApp">اتصل بنا أو واتساب</h4>
+                                <p>+968 93810755</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-form-wrapper">
+                    <form id="bookingForm" class="booking-form">
+                        <h3 data-ar="احجز استشارتك المجانية" data-en="Book Your Free Consultation">احجز استشارتك المجانية</h3>
+
+                        <div class="form-group">
+                            <label for="userName" data-ar="اسم العميل" data-en="Client Name">اسم العميل</label>
+                            <input type="text" id="userName" name="user_name" required autocomplete="name" placeholder="أدخل اسمك الكامل" data-ar="أدخل اسمك الكامل" data-en="Enter your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userPhone" data-ar="رقم الهاتف" data-en="Phone Number">رقم الهاتف</label>
+                            <input type="tel" id="userPhone" name="user_phone" required autocomplete="tel" inputmode="tel" dir="ltr" placeholder="+968 9XXX XXXX" data-ar="+968 9XXX XXXX" data-en="+968 9XXX XXXX">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userMessage" data-ar="تفاصيل الاستشارة أو الرسالة" data-en="Consultation Details / Message">تفاصيل الاستشارة أو الرسالة</label>
+                            <textarea id="userMessage" name="message" rows="5" required placeholder="اكتب نبذة عن مشروعك ومتطلباتك البصرية..." data-ar="اكتب نبذة عن مشروعك ومتطلباتك البصرية..." data-en="Tell us about your project and visual requirements..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                            <span class="btn-text" data-ar="احجز استشارتك المجانية" data-en="Book Your Free Consultation">احجز استشارتك المجانية</span>
+                        </button>
+                        <p class="form-note" data-ar="استشارة مجانية بالكامل — اترك بياناتك وسنتواصل معك خلال ٢٤ ساعة." data-en="A completely free consultation — leave your details and we'll contact you within 24 hours.">
+                            استشارة مجانية بالكامل — اترك بياناتك وسنتواصل معك خلال ٢٤ ساعة.
+                        </p>
+                        <div id="formSuccess" class="form-success" role="status" aria-live="polite" style="display: none;">
+                            تم استلام طلب الاستشارة المجانية بنجاح! سنتواصل معك قريباً.
+                        </div>
+                        <div id="formError" class="form-error" role="alert" aria-live="assertive" style="display: none;">
+                            تعذر إرسال الطلب. يرجى المحاولة مرة أخرى أو التواصل معنا على +968 93810755.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Dedicated Category View (Isolated Page) -->
+    <div id="categoryView" class="category-view" style="display: none;">
+        <div class="container category-view-container">
+            <div class="category-view-header">
+                <button id="backToHomeBtn" class="btn btn-outline" data-ar="← العودة للرئيسية" data-en="← Back to Home">← العودة للرئيسية</button>
+                <h1 id="categoryViewTitle" class="category-view-title">التصنيف</h1>
+                <p id="categoryViewDesc" class="category-view-desc">استعرض أعمال هذا القسم بأعلى جودة سينمائية.</p>
+            </div>
+            <div class="portfolio-grid" id="categoryViewGrid">
+                <!-- Items injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Studio About View (Logo Click View) -->
+    <div id="studioAboutView" class="category-view" style="display: none;">
+        <div class="container category-view-container">
+            <div class="category-view-header">
+                <button id="aboutBackToHomeBtn" class="btn btn-outline" data-ar="← العودة للرئيسية" data-en="← Back to Home">← العودة للرئيسية</button>
+                <h1 class="category-view-title" data-ar="عن فراولة ستوديو" data-en="About Frawala Studio">عن فراولة ستوديو</h1>
+                <p class="category-view-desc" data-ar="استوديو رائد في الإنتاج البصري والتصوير التجاري وسرد قصص العلامات التجارية في مسقط، سلطنة عمان." data-en="A leading visual production and commercial photography studio in Muscat, Sultanate of Oman.">
+                    استوديو رائد في الإنتاج البصري والتصوير التجاري وسرد قصص العلامات التجارية في مسقط، سلطنة عمان.
+                </p>
+            </div>
+            <div class="studio-about-content">
+                <div class="studio-about-text">
+                    <h3 data-ar="رؤيتنا وشغفنا" data-en="Our Vision & Passion">رؤيتنا وشغفنا</h3>
+                    <p data-ar="نحن في فراولة ستوديو لا نلتقط الصور فحسب، بل نصنع عوالم بصرية تخلد البراندات وترفع من قيمتها السوقية. ندمج بين أحدث تقنيات الإضاءة السينمائية، دقة تعديل الألوان (Color Grading)، والإخراج الفني الفريد لنقدم أعمالاً تخطف الأنظار." data-en="At Frawala Studio, we don't just take pictures; we create visual worlds that immortalize brands and elevate their market value. We combine the latest cinematic lighting techniques, color grading precision, and unique art direction to deliver breathtaking work.">
+                        نحن في فراولة ستوديو لا نلتقط الصور فحسب، بل نصنع عوالم بصرية تخلد البراندات وترفع من قيمتها السوقية. ندمج بين أحدث تقنيات الإضاءة السينمائية، دقة تعديل الألوان (Color Grading)، والإخراج الفني الفريد لنقدم أعمالاً تخطف الأنظار.
+                    </p>
+                </div>
+                <div class="portfolio-grid" id="studioAboutGrid">
+                    <!-- Highlights injected via JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/96893810755" target="_blank" class="floating-whatsapp" aria-label="WhatsApp Chat">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-tooltip" data-ar="تواصل واتساب" data-en="Chat on WhatsApp">تواصل واتساب</span>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <a href="javascript:void(0)" class="footer-logo" aria-label="شعار فراولة ستوديو">
+                    <img src="assets/logo/main-logo.jpeg" alt="Frawala Studio Logo" loading="lazy" decoding="async">
+                    <span data-ar="فراولة ستوديو" data-en="Frawala Studio">فراولة ستوديو</span>
+                </a>
+                <p data-ar="استوديو بصري عالمي مقره مسقط، متخصص في صناعة المحتوى التجاري، الإعلانات السينمائية، وهویات البراندات الفاخرة." data-en="An international visual studio based in Muscat, specialized in commercial content creation, cinematic commercials, and luxury brand identities.">
+                    استوديو بصري عالمي مقره مسقط، متخصص في صناعة المحتوى التجاري، الإعلانات السينمائية، وهویات البراندات الفاخرة.
+                </p>
+                <div class="footer-social">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="انستغرام فراولة ستوديو"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer" aria-label="فيميو فراولة ستوديو"><i class="fa-brands fa-vimeo-v" aria-hidden="true"></i></a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="تويتر فراولة ستوديو"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="لينكدإن فراولة ستوديو"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4 data-ar="روابط سريعة" data-en="Quick Links">روابط سريعة</h4>
+                <ul>
+                    <li><a href="#hero" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+                    <li><a href="#testimonials" data-ar="آراء العملاء" data-en="Testimonials">آراء العملاء</a></li>
+                    <li><a href="#team" data-ar="فريق العمل" data-en="The Team">فريق العمل</a></li>
+                    <li><a href="#booking" data-ar="حجز موعد" data-en="Book Now">حجز موعد</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 data-ar="خدماتنا" data-en="Our Services">خدماتنا</h4>
+                <ul>
+                    <li data-ar="تصوير العطور والعبايا" data-en="Perfumes & Abayas">تصوير العطور والعبايا</li>
+                    <li data-ar="تصوير الأقمشة" data-en="Fabrics">تصوير الأقمشة</li>
+                    <li data-ar="تصوير الورد / فلاورد" data-en="Floward / Flowers">تصوير الورد / فلاورد</li>
+                    <li data-ar="تصوير عمانيين وبورتريه" data-en="Omanis & Portraits">تصوير عمانيين وبورتريه</li>
+                    <li data-ar="تصوير الكافيهات والمطاعم" data-en="Cafes & Restaurants">تصوير الكافيهات والمطاعم</li>
+                    <li data-ar="إنتاج الريلز ومحتوى السوشيال" data-en="Reels & Social Media">إنتاج الريلز ومحتوى السوشيال</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p data-ar="© 2026 فراولة ستوديو (Frawala Studio) - مسقط، عمان. جميع الحقوق محفوظة." data-en="© 2026 Frawala Studio - Muscat, Oman. All rights reserved.">
+                    © 2026 فراولة ستوديو (Frawala Studio) - مسقط، عمان. جميع الحقوق محفوظة.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content-wrapper" id="lightboxContent"></div>
+    </div>
+
+    <!-- JavaScript (deferred: parsing is never blocked) -->
+    <script src="script.js" defer></script>
+    <script src="updated/updated-lang-icons.js" defer></script>
+    <script src="updated/updated-brands-dropdown.js" defer></script>
+</body>
+</html>
